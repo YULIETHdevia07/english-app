@@ -1,10 +1,16 @@
-import { FaBook, FaGamepad } from "react-icons/fa";
-import { MdMenuBook } from "react-icons/md";
+import { FaHome, FaBook, FaGamepad, FaSpellCheck } from "react-icons/fa";
 import { useNavigate, useLocation } from "react-router-dom";
 
 export function Sidebar({ open }) {
   const navigate = useNavigate();
   const location = useLocation();
+
+  const menuItems = [
+    { path: "/", label: "Home", icon: <FaHome /> },
+    { path: "/vocabulary", label: "Vocabulary", icon: <FaBook /> },
+    { path: "/grammar", label: "Grammar", icon: <FaSpellCheck /> },
+    { path: "/games", label: "Games", icon: <FaGamepad /> }
+  ];
 
   return (
     <div
@@ -13,41 +19,21 @@ export function Sidebar({ open }) {
         ...(open ? styles.sidebarOpen : styles.sidebarClosed)
       }}
     >
+
       <ul style={styles.list}>
-        
-        <li
-          style={{
-            ...styles.item,
-            ...(location.pathname === "/grammar" && styles.active)
-          }}
-          onClick={() => navigate("/grammar")}
-        >
-          <FaBook />
-          {open && <span>Grammar</span>}
-        </li>
-
-        <li
-          style={{
-            ...styles.item,
-            ...(location.pathname === "/" && styles.active)
-          }}
-          onClick={() => navigate("/")}
-        >
-          <MdMenuBook />
-          {open && <span>Vocabulary</span>}
-        </li>
-
-        <li
-          style={{
-            ...styles.item,
-            ...(location.pathname === "/games" && styles.active)
-          }}
-          onClick={() => navigate("/games")}
-        >
-          <FaGamepad />
-          {open && <span>Games</span>}
-        </li>
-
+        {menuItems.map((item) => (
+          <li
+            key={item.path}
+            style={{
+              ...styles.item,
+              ...(location.pathname === item.path ? styles.active : {})
+            }}
+            onClick={() => navigate(item.path)}
+          >
+            <span style={styles.icon}>{item.icon}</span>
+            {open && <span>{item.label}</span>}
+          </li>
+        ))}
       </ul>
     </div>
   );
@@ -61,31 +47,30 @@ const styles = {
     padding: "15px",
     transition: "0.3s"
   },
-
   sidebarOpen: {
     width: "220px"
   },
-
   sidebarClosed: {
     width: "70px"
   },
-
   list: {
     listStyle: "none",
-    padding: 0
+    padding: 0,
+    margin: 0
   },
-
   item: {
     display: "flex",
     alignItems: "center",
     gap: "10px",
-    margin: "0px",
     cursor: "pointer",
-    padding: "10px",
-    borderRadius: "8px",
-    transition: "0.2s"
+    padding: "12px",
+    borderRadius: "10px",
+    transition: "0.2s",
+    marginBottom: "8px"
   },
-
+  icon: {
+    fontSize: "18px"
+  },
   active: {
     background: "#334155"
   }

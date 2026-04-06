@@ -3,29 +3,41 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Header } from "./components/Header";
 import { Sidebar } from "./components/Sidebar";
 import { Main } from "./pages/Main";
+import { VocabularyPage } from "./pages/VocabularyPage";
+import { GrammarPage } from "./pages/GrammarPage";
+import { GamesPage } from "./pages/GamesPage";
 
 function App() {
   const [open, setOpen] = useState(true);
 
   return (
     <BrowserRouter>
-      <div style={{ display: "flex" }}>
+      <div style={styles.app}>
         <Sidebar open={open} />
-
-        <div style={{ flex: 1 }}>
+        <div style={styles.content}>
           <Header open={open} setOpen={setOpen} />
+
           <Routes>
             <Route path="/" element={<Main />} />
-            <Route path="/principiante" element={<div>Principiante</div>} />
-            <Route path="/a1" element={<div>A1</div>} />
-            <Route path="/a2" element={<div>A2</div>} />
-            <Route path="/grammar" element={<div>Grammar</div>} />
-            <Route path="/games" element={<div>Games</div>} />
+            <Route path="/vocabulary" element={<VocabularyPage />} />
+            <Route path="/grammar" element={<GrammarPage />} />
+            <Route path="/games" element={<GamesPage />} />
           </Routes>
         </div>
       </div>
     </BrowserRouter>
   );
 }
+
+const styles = {
+  app: {
+    display: "flex",
+    minHeight: "100vh",
+    background: "#f8fafc",
+  },
+  content: {
+    flex: 1,
+  },
+};
 
 export default App;

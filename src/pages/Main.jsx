@@ -1,36 +1,32 @@
 import { Card } from "../components/Card";
-import { FaBook, FaGamepad, FaLayerGroup } from "react-icons/fa";
+import { FaBook, FaGamepad, FaSpellCheck } from "react-icons/fa";
 
 export function Main() {
   return (
-    <div className="main">
-      <h1>EXPERT ENGLISH</h1>
+    <div style={styles.container}>
+      <h1 style={styles.title}>Welcome</h1>
+      <p style={styles.subtitle}>
+        Selecciona una opción para comenzar a estudiar.
+      </p>
 
-      <div className="cards">
+      <div style={styles.grid}>
         <Card
-          title="Principiante"
-          subtitle="Nivel básico"
+          title="Vocabulary"
+          subtitle="Aprende vocabulario por niveles y semanas"
           icon={<FaBook />}
-          to="/principiante"
+          to="/vocabulary"
         />
 
         <Card
-          title="A1"
-          subtitle="Nivel inicial"
-          icon={<FaLayerGroup />}
-          to="/a1"
-        />
-
-        <Card
-          title="A2"
-          subtitle="Pre intermedio"
-          icon={<FaLayerGroup />}
-          to="/a2"
+          title="Grammar"
+          subtitle="Estudia gramática por niveles y semanas"
+          icon={<FaSpellCheck />}
+          to="/grammar"
         />
 
         <Card
           title="Games"
-          subtitle="Aprende jugando"
+          subtitle="Aprende inglés con juegos"
           icon={<FaGamepad />}
           to="/games"
         />
@@ -38,3 +34,22 @@ export function Main() {
     </div>
   );
 }
+
+const styles = {
+  container: {
+    padding: "24px",
+  },
+  title: {
+    marginBottom: "8px",
+    color: "#0f172a",
+  },
+  subtitle: {
+    color: "#64748b",
+    marginBottom: "24px",
+  },
+  grid: {
+    display: "grid",
+    gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))",
+    gap: "16px",
+  },
+};
