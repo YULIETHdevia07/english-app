@@ -41,8 +41,8 @@ export function Sidebar({ open }) {
 
 const styles = {
   sidebar: {
-    background: "#1e293b",
-    color: "white",
+    background: "var(--color-primary)",
+    color: "var(--color-surface)",
     minHeight: "100vh",
     padding: "15px",
     transition: "0.3s"
@@ -66,10 +66,12 @@ const styles = {
     padding: "12px",
     borderRadius: "10px",
     transition: "0.2s",
-    marginBottom: "8px"
+    marginBottom: "8px",
+    color: "var(--color-surface)"
   },
   icon: {
-    fontSize: "18px"
+    fontSize: "18px",
+    color: "var(--color-surface)"
   },
   active: {
     background: "#334155"

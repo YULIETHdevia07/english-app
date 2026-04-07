@@ -38,13 +38,15 @@ export function Main() {
 const styles = {
   container: {
     padding: "24px",
+    background: "var(--color-bg)",
+    minHeight: "100vh",
   },
   title: {
     marginBottom: "8px",
-    color: "#0f172a",
+    color: "var(--color-primary)",
   },
   subtitle: {
-    color: "#64748b",
+    color: "var(--color-muted)",
     marginBottom: "24px",
   },
   grid: {

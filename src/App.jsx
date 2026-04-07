@@ -33,11 +33,10 @@ const styles = {
   app: {
     display: "flex",
     minHeight: "100vh",
-    background: "#f8fafc",
+    background: "var(--color-bg)",
   },
   content: {
     flex: 1,
   },
 };
-
 export default App;

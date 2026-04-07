@@ -1,7 +1,17 @@
+:root {
+  --color-primary: #1e293b;
+  --color-secondary: #2563eb;
+  --color-accent: #38bdf8;
+  --color-bg: #f5f6fa;
+  --color-surface: #ffffff;
+  --color-text: #0f172a;
+  --color-muted: gray;
+}
+
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  background-color: #f5f6fa;
+  background-color: var(--color-bg);
 }
 
 /* Layout */
@@ -12,8 +22,8 @@ body {
 /* Sidebar */
 .sidebar {
   width: 220px;
-  background: #1e293b;
-  color: white;
+  background: var(--color-primary);
+  color: var(--color-surface);
   min-height: 100vh;
   padding: 20px;
 }
@@ -25,13 +35,13 @@ body {
 }
 
 .sidebar li:hover {
-  color: #38bdf8;
+  color: var(--color-accent);
 }
 
 /* Header */
 .header {
-  background: #2563eb;
-  color: white;
+  background: var(--color-secondary);
+  color: var(--color-surface);
   padding: 15px;
   display: flex;
   justify-content: space-between;
@@ -43,31 +53,9 @@ body {
   flex: 1;
 }
 
-/* Cards */
-.cards {
-  display: flex;
-  gap: 15px;
-}
-
-.card {
-  background: white;
-  padding: 20px;
-  border-radius: 10px;
-  width: 180px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-}
-
-.header {
-  background: #2563eb;
-  color: white;
-  padding: 15px;
-  display: flex;
-  align-items: center;
-  gap: 20px;
-}
-
+/* Hover general */
 li:hover {
-  color: #38bdf8;
+  color: var(--color-accent);
   transform: translateX(5px);
   transition: 0.2s;
 }
@@ -79,7 +67,7 @@ li:hover {
 }
 
 .card {
-  background: white;
+  background: var(--color-surface);
   padding: 20px;
   border-radius: 15px;
   width: 200px;
@@ -97,14 +85,15 @@ li:hover {
 .card-icon {
   font-size: 40px;
   margin-bottom: 10px;
-  color: #2563eb;
+  color: var(--color-secondary);
 }
 
 .card h3 {
   margin: 10px 0 5px;
+  color: var(--color-text);
 }
 
 .card p {
-  color: gray;
+  color: var(--color-muted);
   font-size: 14px;
 }
